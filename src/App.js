@@ -16,7 +16,9 @@ function App() {
         <button>Contact Us</button>
       </div>
 
-      <div className='hero-page'>
+      <img className='hero-page' src="../car-back.png"/>
+
+      <div className='search-bar'>
 
       </div>
 
