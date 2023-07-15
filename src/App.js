@@ -9,15 +9,18 @@ function App() {
       <div className="navbar">
         <img className="home-logo" src="../logo192.png"/>
         <div className='menu'>
-          <p>Home</p>
-          <p>About</p>
-          <p>Cars</p>
+          <a>Home</a>
+          <a>About</a>
+          <a>Cars</a>
         </div>
-        <button>Contact Us</button>
+        <a className="contact-btn" href="mailto:som@motorway.com?subject=Hello!">Contact Us</a>
       </div>
 
-      <img className='hero-page' src="../car-back.png"/>
-
+      <div className='hero-page'>
+        <h1><strong><i>Find the best car for you.</i></strong></h1>
+        <a className="sign-btn" src="">Sign Up</a>
+      </div>
+      <h3 className='search-title'><strong><i>Read what people are saying about the car of your choice</i></strong></h3>
       <div className='search-bar'>
 
       </div>
