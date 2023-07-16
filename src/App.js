@@ -55,18 +55,20 @@ function App() {
       {
         Images && Images.map(img => (
           <div key={img.id} className='car-card' >
-            <ModalImage
-                className="car-img"
-                small={`${img.url}.jpg`}
-                large={`${img.url}.jpg`}
-                alt=""
-              />;
-            <div className="card-right">
+            <div className="top-card">
               <div className="profile">
                 <img className="hero-img" src={`${img.user.profile_image}.webp`} alt=''/>
                 <p className="name"><strong>{`${img.user.name}`}</strong></p>
               </div>
-              <p className="bio">{`${img.user.bio}`}</p>
+              <ModalImage
+                  className="car-img"
+                  small={`${img.url}.jpg`}
+                  large={`${img.url}.jpg`}
+                  alt=""
+              />;
+              <div className="card-right">
+                <p className="bio">{`${img.user.bio}`}</p>
+              </div>
             </div>
           </div>
         ))
