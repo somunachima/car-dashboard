@@ -11,6 +11,7 @@
     "nodemon": "^2.0.20",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-modal-image": "^2.6.0",
     "react-router-dom": "^6.14.1",
     "sweetalert2": "^11.7.18",
     "sweetalert2-react-content": "^5.0.7",

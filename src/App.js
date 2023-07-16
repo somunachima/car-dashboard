@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import RevealOnScroll from "@phntms/reveal-on-scroll";
+import ModalImage from "react-modal-image";
 import './App.css';
 import Images from "./images.json";
 import Popup from './Popup';
 import SignUp from './SignUp';
 import { v4 as uuidv4 } from 'uuid';
 import Swal from "sweetalert2";
+
 
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -52,8 +54,13 @@ function App() {
 
       {
         Images && Images.map(img => (
-          <div key={img.id} className='car-card reveal-on-scroll' >
-            <img className="car-img" src={`${img.url}.jpg`} alt=''/>
+          <div key={img.id} className='car-card' >
+            <ModalImage
+                className="car-img"
+                small={`${img.url}.jpg`}
+                large={`${img.url}.jpg`}
+                alt=""
+              />;
             <div className="card-right">
               <div className="profile">
                 <img className="hero-img" src={`${img.user.profile_image}.webp`} alt=''/>
