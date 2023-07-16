@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RevealOnScroll from "@phntms/reveal-on-scroll";
 import './App.css';
 import Images from "./images.json";
 import Popup from './Popup';
@@ -22,6 +23,8 @@ function App() {
     localStorage.setItem("Signed up!", JSON.stringify([...signs, newSign]));
   }
 
+  new RevealOnScroll();
+
   return (
     <div className='app'>
       <div className="navbar">
@@ -42,17 +45,21 @@ function App() {
       <h3 className='search-title'><strong><i>Read what people are saying about your car of choice</i></strong></h3>
 
       <div className='search'>
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input className="search-bar" id="input" name="name" type="text" placeholder="Search cars by colour" autofocus></input>
+        <i className="fa-solid fa-magnifying-glass search-icon"></i>
+        <input className="search-bar" id="input" name="name" type="text" placeholder="Search cars by colour" autoFocus></input>
       </div>
       <div id="display-data"></div>
 
       {
         Images && Images.map(img => (
-          <div key={img.id} className='car-card' >
+          <div key={img.id} className='car-card reveal-on-scroll' >
             <img className="car-img" src={`${img.url}.jpg`} alt=''/>
             <div className="card-right">
-            <img className="hero-img" src={`${img.user.profile_image}.webp`} alt=''/>
+              <div className="profile">
+                <img className="hero-img" src={`${img.user.profile_image}.webp`} alt=''/>
+                <p className="name"><strong>{`${img.user.name}`}</strong></p>
+              </div>
+              <p className="bio">{`${img.user.bio}`}</p>
             </div>
           </div>
         ))
