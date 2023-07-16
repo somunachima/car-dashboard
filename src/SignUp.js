@@ -1,84 +1,79 @@
 import { useState } from 'react';
 import Swal from "sweetalert2"
+import SliderBar from './SliderBar';
 
-const AddTask = ({onSave}) => {
+const SignUp = ({onSave}) => {
   const [text, setText] = useState('');
-  const [type, setType] = useState('');
+  const [email, setEmail] = useState('');
   const [day, setDay] = useState('');
-  const [time, setTime] = useState('');
+  const [colour, setColour] = useState('');
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!text && !day && !time && !type) {
+    if (!text && !day && !colour && !email) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill in your task, type of task, date and time or close the form!'
+            text: 'Fill in your name, email, DOB and favourite colour!'
         })
     } else if (!text && day) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill in your task!'
+            text: 'Fill in your name, email, DOB and favourite colour!'
         })
-    } else if (!type && day) {
+    } else if (!email && day) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill in your type of task!'
+            text: 'Fill in your name, email, DOB and favourite colour!'
         })
     } else if (text && !day) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill in your date!'
+            text: 'Fill in your name, email, DOB and favourite colour!'
         })
-    } else if (type && !day) {
+    } else if (email && !day) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill in your date!'
+            text: 'Fill in your name, email, DOB and favourite colour!'
         })
-    } else if (text && !time) {
+    } else if (text && !colour) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill in your time!'
-        })
-    } else if (day && !time) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Fill in your time!'
+            text: 'Fill in your name, email, DOB and favourite colour!'
         })
     } else {
-        onSave({ text, day, time, type });
+        onSave({ text, day, colour, email });
     }
     setText('');
-    setType('');
+    setEmail('');
     setDay('');
-    setTime('');
+    setColour('');
   }
+
   return (
       <form className="sign-form" onSubmit={onSubmit}>
           <div className="form-control">
               <input type="text" placeholder="Name" value={text} onChange={(e) => setText(e.target.value)} />
           </div>
           <div className="form-control">
-              <input type="text" placeholder="Email" value={type} onChange={(e) => setType(e.target.value)} />
+              <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="form-control">
               <input type="text" placeholder="Date of birth" value={day} onChange={(e) => setDay(e.target.value)} />
           </div>
           <div className="form-control">
-              <input type="text" placeholder="Favourite colour" value={time} onChange={(e) => setTime(e.target.value)} />
+              <input type="text" placeholder="Favourite colour" value={colour} onChange={(e) => setColour(e.target.value)} />
           </div>
-          <div className="form-control">
-              <input type="text" placeholder="Salary" value={time} onChange={(e) => setTime(e.target.value)} />
-          </div>
-          <input type="submit" className="btn btn-block" value="Submit" />
+          <label className='salary-label'>Salary</label>
+          <SliderBar/>
+          <input type="submit" className="btn btn-block" value="Submit"/>
       </form>
     )
 }
-export default AddTask
+export default SignUp
 
 // Name, Email, Date of birth, Favourite colour, Salary (using a range input)

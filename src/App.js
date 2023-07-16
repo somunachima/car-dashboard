@@ -1,12 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Images from "./images.json";
 import Popup from './Popup';
 import SignUp from './SignUp';
+import { v4 as uuidv4 } from 'uuid';
+import Swal from "sweetalert2";
 
 function App() {
-
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [signs, setSigns] = useState([]);
+
+  const signUp = (sign) => {
+    const id = uuidv4();
+    const newSign = { id, ...sign }
+    setSigns([...signs, newSign]);
+    Swal.fire({
+        icon: 'success',
+        title: 'Yay...',
+        text: 'You have successfully signed up!'
+    })
+    localStorage.setItem("Signed up!", JSON.stringify([...signs, newSign]));
+  }
 
   return (
     <div className='app'>
@@ -21,7 +35,7 @@ function App() {
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
           <h6>Sign Up</h6>
           <span className="task-type">
-            <SignUp/>
+            <SignUp onSave={signUp}/>
           </span>
         </Popup>
       </div>

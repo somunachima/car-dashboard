@@ -37,12 +37,12 @@ h6 {
   right: 16px;
   border: 0px;
   background-color: transparent;
-  /* text-decoration: none; */
   text-decoration: none;
-  color: black;
+  color: rgb(148, 147, 147);
+  transition: all 0.3s;
   }
 
 .popup-inner .close-btn:hover {
-  color: #223F9A;
+  color: black;
   transform: scale (1.08);
 }
