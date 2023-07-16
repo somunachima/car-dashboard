@@ -44,7 +44,7 @@ function App() {
             </span>
           </Popup>
         </div>
-        <h3 className='search-title'><strong><i>Read what people are saying about your car of choice</i></strong></h3>
+        <h4 className='search-title'><strong><i>Read what people are saying about your car of choice</i></strong></h4>
 
         <div className='search'>
           <i className="fa-solid fa-magnifying-glass search-icon"></i>
