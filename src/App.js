@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Images from "./images.json";
 import Popup from './Popup';
+import SignUp from './SignUp';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
         <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
           <h6>Sign Up</h6>
           <span className="task-type">
-            <p>Form</p>
+            <SignUp/>
           </span>
         </Popup>
       </div>
