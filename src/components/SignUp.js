@@ -60,13 +60,13 @@ const SignUp = ({onSave}) => {
               <input type="text" placeholder="Name" value={text} onChange={(e) => setText(e.target.value)} />
           </div>
           <div className="form-control">
-              <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="form-control">
-              <input type="text" placeholder="Date of birth" value={day} onChange={(e) => setDay(e.target.value)} />
+              <input type="date" placeholder="Date of birth" value={day} onChange={(e) => setDay(e.target.value)} />
           </div>
           <div className="form-control">
-              <input type="text" placeholder="Favourite colour" value={colour} onChange={(e) => setColour(e.target.value)} />
+              <input type="color" placeholder="Favourite colour" value={colour} onChange={(e) => setColour(e.target.value)} />
           </div>
           <label className='salary-label'>Salary</label>
           <SliderBar/>
